@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/hooks'; // Assuming you'll create this file
+// We will remove the useIntersectionObserver hook for this page
+// import { useIntersectionObserver } from '../hooks/hooks'; 
 
 const ContactPage = () => {
-  const [ref, isVisible] = useIntersectionObserver();
+  // Removed the useIntersectionObserver hook call
+  // const [ref, isVisible] = useIntersectionObserver(); 
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -67,9 +70,8 @@ const ContactPage = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-amber-50 via-white to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div ref={ref} className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
-          }`}>
+          {/* Removed the ref and isVisible logic from the header */}
+          <div className="text-center mb-16 transition-all duration-1000 opacity-100 transform translate-y-0">
             <h1 className="text-6xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-6">
               Get In Touch
             </h1>
@@ -80,9 +82,8 @@ const ContactPage = () => {
 
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <div className={`transition-all duration-1000 delay-300 ${
-              isVisible ? 'opacity-100 transform translate-x-0' : 'opacity-0 transform -translate-x-10'
-            }`}>
+            {/* Removed the isVisible logic from the form and contact info containers */}
+            <div className="transition-all duration-1000 delay-300 opacity-100 transform translate-x-0">
               <div className="bg-white rounded-3xl shadow-2xl p-8">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Schedule Your Visit</h2>
                 
@@ -200,9 +201,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Information */}
-            <div className={`transition-all duration-1000 delay-500 ${
-              isVisible ? 'opacity-100 transform translate-x-0' : 'opacity-0 transform translate-x-10'
-            }`}>
+            <div className="transition-all duration-1000 delay-500 opacity-100 transform translate-x-0">
               <div className="space-y-8">
                 <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white rounded-3xl p-8">
                   <h3 className="text-2xl font-bold mb-6">Visit Our Sales Office</h3>
