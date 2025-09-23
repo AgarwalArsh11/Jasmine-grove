@@ -23,7 +23,7 @@ export const useIntersectionObserver = (options = {}) => {
 
     const observer = new IntersectionObserver(([entry]) => {
       setIsIntersecting(entry.isIntersecting);
-    }, { threshold: 0.1, ...options });
+    }, { threshold: 0.5, ...options });
 
     observer.observe(elementRef);
     return () => observer.disconnect();

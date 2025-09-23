@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Home, Phone, Mail, MapPin } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Home, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -13,25 +13,31 @@ const Footer = () => {
                 <Home className="w-5 h-5 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-                Luxe Living
+                Jasmine Grove
               </span>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-              Experience unparalleled luxury living in the heart of the city. Our premium apartments redefine modern comfort and sophistication.
+              Experience unparalleled luxury living in the heart of the city.
+              Our premium apartments redefine modern comfort and sophistication.
             </p>
             <div className="flex items-center space-x-2 text-gray-300">
               <MapPin className="w-5 h-5 text-amber-500" />
-              <span>123 Premium Avenue, Mumbai, Maharashtra 400001</span>
+              <span>
+                {" "}
+                Delhi Meerut Expressway, NH-24, Ghaziabad, Uttar Pradesh 201002
+              </span>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-amber-400">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6 text-amber-400">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
-              {['Home', 'About', 'Amenities', 'Contact'].map((link) => (
+              {["Home", "About", "Amenities", "Contact"].map((link) => (
                 <li key={link}>
                   <Link
-                    to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
+                    to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
                     className="text-gray-300 hover:text-amber-400 transition-colors duration-300"
                   >
                     {link}
@@ -42,15 +48,17 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-amber-400">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-6 text-amber-400">
+              Contact Info
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-amber-500" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <span className="text-gray-300">+91-9015750750</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-amber-500" />
-                <span className="text-gray-300">info@luxeliving.com</span>
+                <span className="text-gray-300">info@jasminegrove.co.in</span>
               </li>
             </ul>
           </div>
