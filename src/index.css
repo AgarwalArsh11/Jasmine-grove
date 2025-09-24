@@ -70,3 +70,22 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* In your main CSS file (e.g., src/index.css) */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 3rem));
+  }
+}
+
+.animate-scroll-logos {
+  animation: scroll 30s linear infinite;
+}
+
+/* Optional: Add a pause on hover */
+.animate-scroll-logos:hover {
+  animation-play-state: paused;
+}
