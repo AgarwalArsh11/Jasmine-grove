@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bed, Bath, Maximize,X } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/hooks'; // Assuming you'll create this file
-
+import property1 from "../assets/property/property1.avif"
+import property2 from "../assets/property/property2.avif"
+import property3 from "../assets/property/property3.avif"
 const PropertyShowcase = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -17,7 +19,7 @@ const PropertyShowcase = () => {
       bedrooms: 3,
       bathrooms: 2,
       price: '₹1.2 Cr',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80',
+      image: property1,
       features: ['Master Bedroom', 'Modern Kitchen', 'Balcony', 'Study Room']
     },
     {
@@ -28,7 +30,7 @@ const PropertyShowcase = () => {
       bedrooms: 4,
       bathrooms: 3,
       price: '₹1.8 Cr',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80',
+      image: property2,
       features: ['Terrace Garden', 'Premium Fixtures', 'Walk-in Closet', 'Home Theater']
     },
     {
@@ -39,7 +41,7 @@ const PropertyShowcase = () => {
       bedrooms: 3,
       bathrooms: 2,
       price: '₹1.1 Cr',
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      image: property3,
       features: ['City View', 'Modular Kitchen', 'Wooden Flooring', 'Smart Home']
     }
   ];
@@ -50,8 +52,8 @@ const PropertyShowcase = () => {
     { id: '4bhk', name: '4 BHK' }
   ];
 
-  const filteredProperties = activeFilter === 'all' 
-    ? properties 
+  const filteredProperties = activeFilter === 'all'
+    ? properties
     : properties.filter(p => p.type === activeFilter);
 
   return (
