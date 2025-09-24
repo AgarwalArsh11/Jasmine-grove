@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Dumbbell, Waves, Car, Wifi, Users, Leaf } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/hooks'; // Assuming you'll create this file
-
+import amenity1 from "../assets/amenities/amenity1.avif"
+import amenity2 from "../assets/amenities/amenity2.avif"
+import amenity3 from "../assets/amenities/amenity3.avif"
+import amenity4 from "../assets/amenities/amenity4.jpg"
+import amenity5 from "../assets/amenities/amenity5.avif"
+import amenity6 from "../assets/amenities/amenity6.avif"
+import amenity7 from "../assets/amenities/amenity7.jpeg"
+import amenity8 from "../assets/amenities/amenity8.jpg"
+import amenity9 from "../assets/amenities/amenity9.webp"
 const AmenitiesPage = () => {
   const [ref, isVisible] = useIntersectionObserver();
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -12,54 +20,75 @@ const AmenitiesPage = () => {
       icon: <Dumbbell className="w-8 h-8" />,
       title: 'State-of-the-Art Gym',
       description: 'Fully equipped fitness center with modern equipment and personal training services',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: amenity1
     },
     {
       category: 'recreation',
       icon: <Waves className="w-8 h-8" />,
       title: 'Infinity Swimming Pool',
       description: 'Stunning rooftop infinity pool with panoramic city views and poolside lounge',
-      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image:amenity2
     },
     {
       category: 'convenience',
       icon: <Car className="w-8 h-8" />,
       title: 'Premium Parking',
       description: 'Covered parking with EV charging stations and 24/7 security surveillance',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: amenity3
     },
     {
       category: 'convenience',
       icon: <Wifi className="w-8 h-8" />,
       title: 'High-Speed Internet',
       description: 'Fiber-optic internet connectivity throughout the complex with Wi-Fi in common areas',
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: amenity4
     },
     {
       category: 'recreation',
       icon: <Users className="w-8 h-8" />,
       title: 'Community Clubhouse',
       description: 'Elegant clubhouse with event spaces, library, and recreational facilities',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: amenity5
     },
     {
       category: 'fitness',
       icon: <Leaf className="w-8 h-8" />,
       title: 'Landscaped Gardens',
       description: 'Beautifully maintained gardens with walking paths and meditation areas',
-      image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: amenity6
+    },
+    {
+      category: 'convenience',
+      icon: <Users className="w-8 h-8" />,
+      title: 'Convenience Store',
+      description: 'Retail shop offering everyday items and essentials in a convenient location',
+      image: amenity7
+    },
+        {
+      category: 'fitness',
+      icon: <Leaf className="w-8 h-8" />,
+      title: 'Kids Play Area',
+      description: 'physical structures like swings, slides, and climbing elements',
+      image: amenity8
+    },
+        {
+      category: 'fitness',
+      icon: <Leaf className="w-8 h-8" />,
+      title: 'Tennis Court',
+      description: 'A well-built court include a properly constructed sub-base',
+      image: amenity9
     }
   ];
 
   const categories = [
     { id: 'all', name: 'All Amenities' },
-    { id: 'fitness', name: 'Fitness & Wellness' },
+    { id: 'fitness', name: 'Sports' },
     { id: 'recreation', name: 'Recreation' },
     { id: 'convenience', name: 'Convenience' }
   ];
 
-  const filteredAmenities = selectedCategory === 'all' 
-    ? amenities 
+  const filteredAmenities = selectedCategory === 'all'
+    ? amenities
     : amenities.filter(a => a.category === selectedCategory);
 
   return (
