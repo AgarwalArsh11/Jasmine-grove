@@ -210,21 +210,21 @@ const ContactPage = () => {
                       <MapPin className="w-6 h-6 mt-1" />
                       <div>
                         <p className="font-medium">Address</p>
-                        <p className="opacity-90">123 Premium Avenue, Bandra West, Mumbai, Maharashtra 400050</p>
+                        <p className="opacity-90">Delhi Meerut Expressway, NH-24, Ghaziabad, Uttar Pradesh 201002</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Phone className="w-6 h-6" />
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p className="opacity-90">+91 98765 43210</p>
+                        <p className="opacity-90">+91-9015750750</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Mail className="w-6 h-6" />
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className="opacity-90">sales@luxeliving.com</p>
+                        <p className="opacity-90">info@jasminegrove.co.in</p>
                       </div>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="bg-gradient-to-br from-slate-800 to-slate-900 text-white rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold mb-4">Why Choose Luxe Living?</h3>
+                  <h3 className="text-2xl font-bold mb-4">Why Choose Jasmine Grove?</h3>
                   <ul className="space-y-2 opacity-90">
                     <li>• Premium location in the heart of Mumbai</li>
                     <li>• World-class amenities and facilities</li>
