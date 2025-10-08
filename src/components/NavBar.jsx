@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import { Home, Menu, X } from 'lucide-react';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Site Plan', path: '/siteplan' },
-    { name: 'Amenities', path: '/amenities' },
-    { name: 'Gallery', path:'/gallery'},
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: 'home' },
+    { name: 'About', path: 'about' },
+    { name: 'Site Plan', path: 'siteplan' },
+    { name: 'Amenities', path: 'amenities' },
+    { name: 'Gallery', path: 'gallery' },
+    { name: 'Contact', path: 'contact' },
   ];
 
   const toggleMenu = () => {
@@ -24,39 +23,47 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            offset={-80}
+            className="flex items-center space-x-2 cursor-pointer"
+          >
             <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
               <Home className="w-5 h-5 text-white" />
             </div>
             <span className="text-3xl font-bold bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
               Jasmine Grove
             </span>
-          </Link>
+          </ScrollLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center">
             {navLinks.map((link) => (
-              <Link
+              <ScrollLink
                 key={link.name}
                 to={link.path}
-                className={`text-lg font-medium transition-colors duration-300 relative group
-                  ${location.pathname === link.path ? 'text-amber-600' : 'text-gray-700 hover:text-amber-600'}
-                `}
+                smooth={true}
+                duration={500}
+                offset={-80}
+                spy={true}
+                activeClass="text-amber-600"
+                className="text-lg font-medium text-gray-700 hover:text-amber-600 cursor-pointer transition-colors duration-300 relative group"
               >
                 {link.name}
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[3px] bg-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300
-                    ${location.pathname === link.path ? 'scale-x-100' : ''}
-                  `}
-                />
-              </Link>
+                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              </ScrollLink>
             ))}
-            <Link
-              to="/contact"
-              className="px-6 py-3 text-lg font-semibold rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:from-amber-600 hover:to-amber-700 transition-colors duration-300 transform hover:scale-105"
+            <ScrollLink
+              to="contact"
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="px-6 py-3 text-lg font-semibold rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:from-amber-600 hover:to-amber-700 transition-colors duration-300 transform hover:scale-105 cursor-pointer"
             >
               Contact Us
-            </Link>
+            </ScrollLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -76,24 +83,29 @@ const NavBar = () => {
       >
         <div className="px-2 pt-2 pb-3 space-y-2 text-center">
           {navLinks.map((link) => (
-            <Link
+            <ScrollLink
               key={link.name}
               to={link.path}
+              smooth={true}
+              duration={500}
+              offset={-70}
               onClick={toggleMenu}
-              className={`block px-4 py-2 text-lg font-medium rounded-md
-                ${location.pathname === link.path ? 'bg-amber-100 text-amber-600' : 'text-gray-700 hover:bg-gray-100'}
-              `}
+              className="block px-4 py-2 text-lg font-medium rounded-md text-gray-700 hover:bg-gray-100 cursor-pointer"
             >
               {link.name}
-            </Link>
+            </ScrollLink>
           ))}
-          <Link
-            to="/contact"
+
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            duration={500}
+            offset={-70}
             onClick={toggleMenu}
-            className="block px-4 py-3 text-lg font-semibold rounded-md bg-amber-500 text-white mt-4 mx-4"
+            className="block px-4 py-3 text-lg font-semibold rounded-md bg-amber-500 text-white mt-4 mx-4 cursor-pointer"
           >
             Contact Us
-          </Link>
+          </ScrollLink>
         </div>
       </div>
     </nav>

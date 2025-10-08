@@ -64,7 +64,7 @@ const ContactPage = () => {
       }, 3000);
     }
   };
-
+  
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}

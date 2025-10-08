@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Bed, Bath, Maximize,X } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/hooks'; // Assuming you'll create this file
-import property1 from "../assets/property/property1.avif"
-import property2 from "../assets/property/property2.avif"
-import property3 from "../assets/property/property3.avif"
+import { Link as ScrollLink } from 'react-scroll';
+import { Bed, Bath, Maximize, X } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/hooks';
+import property1 from '../assets/property/property1.avif';
+import property2 from '../assets/property/property2.avif';
+import property3 from '../assets/property/property3.avif';
+
 const PropertyShowcase = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -20,7 +21,7 @@ const PropertyShowcase = () => {
       bathrooms: 2,
       price: '₹1.2 Cr',
       image: property1,
-      features: ['Master Bedroom', 'Modern Kitchen', 'Balcony', 'Study Room']
+      features: ['Master Bedroom', 'Modern Kitchen', 'Balcony', 'Study Room'],
     },
     {
       id: 2,
@@ -31,7 +32,7 @@ const PropertyShowcase = () => {
       bathrooms: 3,
       price: '₹1.8 Cr',
       image: property2,
-      features: ['Terrace Garden', 'Premium Fixtures', 'Walk-in Closet', 'Home Theater']
+      features: ['Terrace Garden', 'Premium Fixtures', 'Walk-in Closet', 'Home Theater'],
     },
     {
       id: 3,
@@ -42,26 +43,33 @@ const PropertyShowcase = () => {
       bathrooms: 2,
       price: '₹1.1 Cr',
       image: property3,
-      features: ['City View', 'Modular Kitchen', 'Wooden Flooring', 'Smart Home']
-    }
+      features: ['City View', 'Modular Kitchen', 'Wooden Flooring', 'Smart Home'],
+    },
   ];
 
   const filters = [
     { id: 'all', name: 'All Units' },
     { id: '3bhk', name: '3 BHK' },
-    { id: '4bhk', name: '4 BHK' }
+    { id: '4bhk', name: '4 BHK' },
   ];
 
-  const filteredProperties = activeFilter === 'all'
-    ? properties
-    : properties.filter(p => p.type === activeFilter);
+  const filteredProperties =
+    activeFilter === 'all'
+      ? properties
+      : properties.filter((p) => p.type === activeFilter);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="properties" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={ref} className={`text-center mb-16 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
-        }`}>
+        {/* Heading */}
+        <div
+          ref={ref}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible
+              ? 'opacity-100 transform translate-y-0'
+              : 'opacity-0 transform translate-y-10'
+          }`}
+        >
           <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
             Exquisite Residences
           </h2>
@@ -167,11 +175,15 @@ const PropertyShowcase = () => {
                   <X className="w-5 h-5" />
                 </button>
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <span className="text-2xl font-bold text-amber-600">{selectedProperty.price}</span>
+                  <span className="text-2xl font-bold text-amber-600">
+                    {selectedProperty.price}
+                  </span>
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-3xl font-bold text-gray-800 mb-4">{selectedProperty.title}</h3>
+                <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                  {selectedProperty.title}
+                </h3>
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Bed className="w-5 h-5 text-amber-600" />
@@ -186,26 +198,18 @@ const PropertyShowcase = () => {
                     <span>{selectedProperty.area}</span>
                   </div>
                 </div>
-                <div className="mb-6">
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Features & Amenities</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProperty.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="bg-amber-50 text-amber-700 px-4 py-2 rounded-full font-medium"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <Link
-                  to="/contact"
-                  className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white text-center py-4 rounded-full font-semibold text-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300"
+
+                {/* Scroll to Contact Button */}
+                <ScrollLink
+                  to="contact"
+                  smooth={true}
+                  duration={600}
+                  offset={-70}
                   onClick={() => setSelectedProperty(null)}
+                  className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white text-center py-4 rounded-full font-semibold text-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300 cursor-pointer"
                 >
                   Schedule a Visit
-                </Link>
+                </ScrollLink>
               </div>
             </div>
           </div>

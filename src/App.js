@@ -1,31 +1,47 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Footer from './components/Footer';
-import Gallery from './pages/Gallery';
+import React from 'react';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+
+// Import your section/page components
+import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AmenitiesPage from './pages/AmenitiesPage';
 import ContactPage from './pages/ContactPage';
-import HomePage from './pages/HomePage';
+import Gallery from './pages/Gallery';
 import SitePlan from './pages/SitePlan';
 
-// Main App Component
 const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/amenities" element={<AmenitiesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/siteplan" element={<SitePlan />} />
+    <div className="App">
+      <NavBar />
 
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+      {/* Each section must have the SAME id as the "path" in your navbar */}
+      <section id="home" className="pt-20">
+        <HomePage />
+      </section>
+
+      <section id="about" className="pt-20">
+        <AboutPage />
+      </section>
+
+      <section id="siteplan" className="pt-20">
+        <SitePlan />
+      </section>
+
+      <section id="amenities" className="pt-20">
+        <AmenitiesPage />
+      </section>
+
+      <section id="gallery" className="pt-20">
+        <Gallery />
+      </section>
+
+      <section id="contact" className="pt-20">
+        <ContactPage />
+      </section>
+
+      <Footer />
+    </div>
   );
 };
 
