@@ -16,27 +16,27 @@ const App = () => {
       <NavBar />
 
       {/* Each section must have the SAME id as the "path" in your navbar */}
-      <section id="home" className="pt-20">
+      <section id="home" >
         <HomePage />
       </section>
 
-      <section id="about" className="pt-20">
+      <section id="about" >
         <AboutPage />
       </section>
 
-      <section id="siteplan" className="pt-20">
+      <section id="siteplan" >
         <SitePlan />
       </section>
 
-      <section id="amenities" className="pt-20">
+      <section id="amenities" >
         <AmenitiesPage />
       </section>
 
-      <section id="gallery" className="pt-20">
+      <section id="gallery" >
         <Gallery />
       </section>
 
-      <section id="contact" className="pt-20">
+      <section id="contact" >
         <ContactPage />
       </section>
 

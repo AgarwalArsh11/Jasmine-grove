@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { Bed, Bath, Maximize, X } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/hooks';
 import property1 from '../assets/property/property1.avif';
 import property2 from '../assets/property/property2.avif';
 import property3 from '../assets/property/property3.avif';
@@ -9,7 +8,6 @@ import property3 from '../assets/property/property3.avif';
 const PropertyShowcase = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProperty, setSelectedProperty] = useState(null);
-  const [ref, isVisible] = useIntersectionObserver();
 
   const properties = [
     {
@@ -62,14 +60,7 @@ const PropertyShowcase = () => {
     <section id="properties" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div
-          ref={ref}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible
-              ? 'opacity-100 transform translate-y-0'
-              : 'opacity-0 transform translate-y-10'
-          }`}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
             Exquisite Residences
           </h2>
@@ -99,13 +90,10 @@ const PropertyShowcase = () => {
 
         {/* Property Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProperties.map((property, index) => (
+          {filteredProperties.map((property) => (
             <div
               key={property.id}
-              className={`bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-500 group cursor-pointer ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-500 group cursor-pointer"
               onClick={() => setSelectedProperty(property)}
             >
               <div className="relative overflow-hidden">

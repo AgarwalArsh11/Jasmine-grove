@@ -9,6 +9,14 @@ import img7 from "../assets/gallery/img7.jpg";
 import img8 from "../assets/gallery/img8.jpg";
 import img9 from "../assets/gallery/img9.jpg";
 import img10 from "../assets/gallery/img10.jpg";
+import hdfcLogo from '../assets/about/logo-1.png';
+import iciciLogo from '../assets/about/logo-2.png';
+import pnbLogo from '../assets/about/logo-3.png';
+import sbiLogo from '../assets/about/logo-4.png';
+import centralBankLogo from '../assets/about/logo-5.png';
+import { Shield, Leaf, Users } from 'lucide-react';
+import Testimonials from '../components/Testimonials';
+
 
 const images = [
   img1, img2, img3, img4,
@@ -83,6 +91,72 @@ const Gallery = () => {
           </div>
         </div>
       )}
+      {/* Banking Partners Section with automatic carousel */}
+      <section className="py-20 bg-gray-50">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
+            Our Banking Partners
+          </h2>
+        </div>
+        <div className="overflow-hidden">
+          <div className="flex space-x-12 animate-scroll-logos">
+            
+            {[...Array(2)].map((_, listIndex) => (
+              <React.Fragment key={listIndex}>
+                <img src={hdfcLogo} alt="HDFC Bank" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
+                <img src={iciciLogo} alt="ICICI Bank" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
+                <img src={pnbLogo} alt="Punjab National Bank" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
+                <img src={sbiLogo} alt="SBI Bank" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
+                <img src={centralBankLogo} alt="Central Bank of India" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section> 
+
+      {/* Re-using the Core Values Section from your original code */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Shield className="w-8 h-8" />,
+                title: "Trust & Transparency",
+                description: "We believe in honest communication and transparent processes throughout your journey with us."
+              },
+              {
+                icon: <Leaf className="w-8 h-8" />,
+                title: "Sustainable Living",
+                description: "Our developments incorporate eco-friendly practices and sustainable materials for a greener future."
+              },
+              {
+                icon: <Users className="w-8 h-8" />,
+                title: "Community Focus",
+                description: "We create spaces that foster community connections and enhance the quality of life for residents."
+              }
+            ].map((value, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-amber-50 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 transition-transform duration-300">
+                  {value.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Testimonials />
     </div>
   );
 };
