@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Home, Menu, X } from 'lucide-react';
+
+// Define the fixed header height to be used as a scroll offset
+const HEADER_OFFSET = 80;
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
+  // Removed the 'Contact' link from the standard array
   const navLinks = [
     { name: 'Home', path: 'home' },
     { name: 'About', path: 'about' },
     { name: 'Site Plan', path: 'siteplan' },
     { name: 'Amenities', path: 'amenities' },
     { name: 'Gallery', path: 'gallery' },
-    { name: 'Contact', path: 'contact' },
   ];
 
   const toggleMenu = () => {
@@ -23,11 +26,9 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <ScrollLink
-            to="home"
-            smooth={true}
-            duration={500}
-            offset={-80}
+          <a
+            href="#home"
+            onClick={(e) => {e.preventDefault(); handleScroll('home');}}
             className="flex items-center space-x-2 cursor-pointer"
           >
             <div className="w-10 h-10 bg-gradient-to-r from-color-4 to-color-3 rounded-lg flex items-center justify-center">
@@ -36,7 +37,7 @@ const NavBar = () => {
             <span className="text-3xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent">
               Jasmine Grove
             </span>
-          </ScrollLink>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center">
@@ -63,7 +64,7 @@ const NavBar = () => {
               className="px-6 py-3 text-lg font-semibold rounded-full bg-gradient-to-r from-color-4 to-color-3 text-white shadow-lg hover:from-color-3 hover:to-color-2 transition-colors duration-300 transform hover:scale-105 cursor-pointer"
             >
               Contact Us
-            </ScrollLink>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -105,7 +106,7 @@ const NavBar = () => {
             className="block px-4 py-3 text-lg font-semibold rounded-md bg-color-4 text-white mt-4 mx-4 cursor-pointer"
           >
             Contact Us
-          </ScrollLink>
+          </a>
         </div>
       </div>
     </nav>
