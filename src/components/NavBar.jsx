@@ -30,10 +30,10 @@ const NavBar = () => {
             offset={-80}
             className="flex items-center space-x-2 cursor-pointer"
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-color-4 to-color-3 rounded-lg flex items-center justify-center">
               <Home className="w-5 h-5 text-white" />
             </div>
-            <span className="text-3xl font-bold bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent">
               Jasmine Grove
             </span>
           </ScrollLink>
@@ -48,11 +48,11 @@ const NavBar = () => {
                 duration={500}
                 offset={-80}
                 spy={true}
-                activeClass="text-amber-600"
-                className="text-lg font-medium text-gray-700 hover:text-amber-600 cursor-pointer transition-colors duration-300 relative group"
+                activeClass="text-color-4"
+                className="text-lg font-medium text-color-3 hover:text-color-4 cursor-pointer transition-colors duration-300 relative group"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-color-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </ScrollLink>
             ))}
             <ScrollLink
@@ -60,7 +60,7 @@ const NavBar = () => {
               smooth={true}
               duration={500}
               offset={-80}
-              className="px-6 py-3 text-lg font-semibold rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg hover:from-amber-600 hover:to-amber-700 transition-colors duration-300 transform hover:scale-105 cursor-pointer"
+              className="px-6 py-3 text-lg font-semibold rounded-full bg-gradient-to-r from-color-4 to-color-3 text-white shadow-lg hover:from-color-3 hover:to-color-2 transition-colors duration-300 transform hover:scale-105 cursor-pointer"
             >
               Contact Us
             </ScrollLink>
@@ -68,7 +68,7 @@ const NavBar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button onClick={toggleMenu} className="p-2 text-gray-700 hover:text-amber-600 focus:outline-none">
+            <button onClick={toggleMenu} className="p-2 text-color-3 hover:text-color-4 focus:outline-none">
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -90,7 +90,7 @@ const NavBar = () => {
               duration={500}
               offset={-70}
               onClick={toggleMenu}
-              className="block px-4 py-2 text-lg font-medium rounded-md text-gray-700 hover:bg-gray-100 cursor-pointer"
+              className="block px-4 py-2 text-lg font-medium rounded-md text-color-3 hover:bg-gray-100 cursor-pointer"
             >
               {link.name}
             </ScrollLink>
@@ -102,7 +102,7 @@ const NavBar = () => {
             duration={500}
             offset={-70}
             onClick={toggleMenu}
-            className="block px-4 py-3 text-lg font-semibold rounded-md bg-amber-500 text-white mt-4 mx-4 cursor-pointer"
+            className="block px-4 py-3 text-lg font-semibold rounded-md bg-color-4 text-white mt-4 mx-4 cursor-pointer"
           >
             Contact Us
           </ScrollLink>

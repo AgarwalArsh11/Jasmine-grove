@@ -14,7 +14,7 @@ import room2 from "../assets/siteplan/room2.jpg";
 import room3 from "../assets/siteplan/room3.jpg";
 import room4 from "../assets/siteplan/room4.jpg";
 
-// Chart Data
+// Chart Data (Hex codes must be used here because 'recharts' does not support Tailwind variables)
 const salesData = [
   { name: "2018", value: 400 },
   { name: "2019", value: 300 },
@@ -23,7 +23,7 @@ const salesData = [
   { name: "2022", value: 450 },
 ];
 
-const COLORS = ["#4F86F7", "#FF6B6B", "#A78BFA", "#FDBA74", "#8B5CF6"];
+const COLORS = ["#3B9797", "#16476A", "#132440", "#BF092F", "#6A9C77"];
 
 const SitePlan = () => {
   // Modal state
@@ -31,12 +31,12 @@ const SitePlan = () => {
 
   return (
     <div className="min-h-screen pt-20 bg-gray-50">
-      
+
       {/* Location & Connectivity Section */}
-      <section className="py-24 bg-gradient-to-br from-white via-cyan-50 to-blue-50">
+      <section className="py-24 bg-gradient-to-br from-white via-color-1/10 to-color-1/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-color-3 mb-6 tracking-tight">
               Location & Connectivity
             </h2>
             <ul className="space-y-4 text-lg text-gray-700 leading-relaxed">
@@ -51,7 +51,7 @@ const SitePlan = () => {
             </ul>
           </div>
           <div className="h-96 w-full p-4 rounded-3xl shadow-xl bg-white flex flex-col justify-center">
-            <h3 className="text-xl font-semibold text-gray-800 text-center mb-6">
+            <h3 className="text-xl font-semibold text-color-3 text-center mb-6">
               Sales Graph
             </h3>
             <ResponsiveContainer width="100%" height="100%">
@@ -73,14 +73,14 @@ const SitePlan = () => {
           </div>
         </div>
       </section>
-      
+
       ---
-      
+
       {/* Master Site Plan Section */}
       {/* Master Site Plan Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 tracking-tight">
+          <h2 className="text-4xl font-extrabold text-color-3 text-center mb-12 tracking-tight">
             Master Site Plan
           </h2>
           <img
@@ -90,13 +90,13 @@ const SitePlan = () => {
             onClick={() => setSelectedImg(sitePlanImg)}
           />
         </div>
-      </section>  
+      </section>
       ---
-      
+
       {/* Room Plans Section */}
-      <section className="py-24 bg-gradient-to-br from-white via-cyan-50 to-blue-50">
+      <section className="py-24 bg-gradient-to-br from-white via-color-1/10 to-color-1/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-12 tracking-tight">
+          <h2 className="text-4xl font-extrabold text-color-3 text-center mb-12 tracking-tight">
             Room Plans
           </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -120,7 +120,7 @@ const SitePlan = () => {
               ].map((room, i) => (
                 <div
                   key={i}
-                  className="rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl flex flex-col overflow-hidden transform hover:-translate-y-2 bg-gradient-to-br from-amber-50 via-white to-amber-50"
+                  className="rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl flex flex-col overflow-hidden transform hover:-translate-y-2 bg-gradient-to-br from-color-1/10 via-white to-color-1/10"
                 >
                   {/* Image Container */}
                   <div className="p-4 w-full">
@@ -131,10 +131,10 @@ const SitePlan = () => {
                       onClick={() => setSelectedImg(room.img)}
                     />
                   </div>
-                  
+
                   {/* Title Section */}
                   <div className="p-6 pt-0 w-full text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    <h3 className="text-2xl font-bold text-color-3 mb-2">
                       {room.title}
                     </h3>
                   </div>
@@ -143,22 +143,6 @@ const SitePlan = () => {
             </div>
         </div>
       </section>
-      
-      ---
-      
-      {/* Modal for Enlarged Image */}
-      {selectedImg && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 animate-fadeIn"
-          onClick={() => setSelectedImg(null)}
-        >
-          <img
-            src={selectedImg}
-            alt="Enlarged view"
-            className="max-w-5xl max-h-[95vh] rounded-2xl shadow-2xl transform scale-95 animate-zoomIn"
-          />
-        </div>
-      )}
     </div>
   );
 };

@@ -61,7 +61,7 @@ const PropertyShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
             Exquisite Residences
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -78,8 +78,8 @@ const PropertyShowcase = () => {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeFilter === filter.id
-                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-amber-600'
+                    ? 'bg-gradient-to-r from-color-4 to-color-3 text-white shadow-lg'
+                    : 'text-color-3 hover:text-color-4'
                 }`}
               >
                 {filter.name}
@@ -102,14 +102,14 @@ const PropertyShowcase = () => {
                   alt={property.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-amber-600 font-bold">
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-color-4 font-bold">
                   {property.price}
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-color-3 mb-2 group-hover:text-color-4 transition-colors duration-300">
                   {property.title}
                 </h3>
                 <div className="flex items-center gap-4 text-gray-600 mb-4">
@@ -130,13 +130,13 @@ const PropertyShowcase = () => {
                   {property.features.slice(0, 2).map((feature) => (
                     <span
                       key={feature}
-                      className="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-sm font-medium"
+                      className="bg-color-4/10 text-color-3 px-3 py-1 rounded-full text-sm font-medium"
                     >
                       {feature}
                     </span>
                   ))}
                   {property.features.length > 2 && (
-                    <span className="text-amber-600 text-sm font-medium">
+                    <span className="text-color-4 text-sm font-medium">
                       +{property.features.length - 2} more
                     </span>
                   )}
@@ -163,26 +163,26 @@ const PropertyShowcase = () => {
                   <X className="w-5 h-5" />
                 </button>
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <span className="text-2xl font-bold text-amber-600">
+                  <span className="text-2xl font-bold text-color-4">
                     {selectedProperty.price}
                   </span>
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                <h3 className="text-3xl font-bold text-color-3 mb-4">
                   {selectedProperty.title}
                 </h3>
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   <div className="flex items-center gap-2 text-gray-600">
-                    <Bed className="w-5 h-5 text-amber-600" />
+                    <Bed className="w-5 h-5 text-color-4" />
                     <span>{selectedProperty.bedrooms} Bedrooms</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
-                    <Bath className="w-5 h-5 text-amber-600" />
+                    <Bath className="w-5 h-5 text-color-4" />
                     <span>{selectedProperty.bathrooms} Bathrooms</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
-                    <Maximize className="w-5 h-5 text-amber-600" />
+                    <Maximize className="w-5 h-5 text-color-4" />
                     <span>{selectedProperty.area}</span>
                   </div>
                 </div>
@@ -194,7 +194,7 @@ const PropertyShowcase = () => {
                   duration={600}
                   offset={-70}
                   onClick={() => setSelectedProperty(null)}
-                  className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white text-center py-4 rounded-full font-semibold text-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300 cursor-pointer"
+                  className="block w-full bg-gradient-to-r from-color-4 to-color-3 text-white text-center py-4 rounded-full font-semibold text-lg hover:from-color-3 hover:to-color-2 transition-all duration-300 cursor-pointer"
                 >
                   Schedule a Visit
                 </ScrollLink>

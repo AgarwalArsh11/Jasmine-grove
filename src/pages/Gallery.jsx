@@ -30,9 +30,9 @@ const Gallery = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero / Heading Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 via-white to-amber-50">
+      <section className="py-20 bg-gradient-to-br from-color-1/10 via-white to-color-1/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-6">
+          <h1 className="text-6xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">
             Our Gallery
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -70,7 +70,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Modal - Kept the same as no colors need changing, just logic */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
@@ -94,13 +94,13 @@ const Gallery = () => {
       {/* Banking Partners Section with automatic carousel */}
       <section className="py-20 bg-gray-50">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
             Our Banking Partners
           </h2>
         </div>
         <div className="overflow-hidden">
           <div className="flex space-x-12 animate-scroll-logos">
-            
+
             {[...Array(2)].map((_, listIndex) => (
               <React.Fragment key={listIndex}>
                 <img src={hdfcLogo} alt="HDFC Bank" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
@@ -112,13 +112,13 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-      </section> 
+      </section>
 
       {/* Re-using the Core Values Section from your original code */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
               Our Core Values
             </h2>
             <p className="text-xl text-gray-600">The principles that guide everything we do</p>
@@ -144,12 +144,12 @@ const Gallery = () => {
             ].map((value, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-amber-50 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group"
+                className="bg-gradient-to-br from-color-1/10 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-color-4 to-color-3 rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 transition-transform duration-300">
                   {value.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{value.title}</h3>
+                <h3 className="text-2xl font-bold text-color-3 mb-4">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
               </div>
             ))}

@@ -21,6 +21,14 @@ module.exports = {
       screens: {
         'xs': '475px',
       },
+      colors: {
+        // --- Custom Palette Definition ---
+        'color-1': '#78B9B5', //
+        'color-2': '#0F828C', //
+        'color-3': '#065084', //
+        'color-4': '#320A6B', //
+        // ---------------------------------
+      },
     },
   },
   plugins: [],

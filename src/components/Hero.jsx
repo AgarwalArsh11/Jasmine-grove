@@ -26,11 +26,14 @@ const Hero = () => {
           ...heroImageStyle,
         }}
       >
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
+        {/* BACKGROUND CHANGE 1: Using new dark blue #132440 */}
+        <div className="absolute inset-0 bg-color-2/60 backdrop-blur-sm" />
+
+        {/* BACKGROUND CHANGE 2: Using new dark blue #132440 */}
+        <div className="absolute inset-0 bg-gradient-to-t from-color-2/90 via-color-2/60 to-transparent" />
       </div>
 
-      {/* Hero Content */}
+      {/* Hero Content (Uses #BF092F colors for contrast) */}
       <div
         className="relative z-10 text-center p-6 sm:p-8 max-w-4xl mx-auto"
         ref={ref}
@@ -42,10 +45,12 @@ const Hero = () => {
               : "opacity-0 transform translate-y-10"
           }`}
         >
-          <p className="text-xl sm:text-2xl font-semibold mb-4 tracking-widest uppercase text-amber-300 drop-shadow-lg">
+          {/* Foreground Text: Soft Teal Accent */}
+          <p className="text-xl sm:text-2xl font-semibold mb-4 tracking-widest uppercase text-color-4 drop-shadow-lg">
             Your Premium Home Awaits
           </p>
-          <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-400 drop-shadow-2xl">
+          {/* Foreground Text: Light Off-White Main Heading */}
+          <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-white drop-shadow-2xl">
             Experience Unmatched Luxury Living
           </h1>
           <p className="text-lg sm:text-xl text-gray-200 mb-10 leading-relaxed drop-shadow-md">
@@ -55,7 +60,7 @@ const Hero = () => {
           </p>
         </div>
 
-        {/* Buttons */}
+        {/* Buttons (Using #BF092F) */}
         <div
           className={`flex flex-col sm:flex-row justify-center items-center gap-6 transition-all duration-1000 delay-300 ${
             isVisible
@@ -63,35 +68,35 @@ const Hero = () => {
               : "opacity-0 transform translate-y-10"
           }`}
         >
-          {/* Smooth Scroll to Amenities */}
+          {/* Primary Button: Solid #BF092F Background */}
           <ScrollLink
             to="amenities"
             smooth={true}
             duration={700}
             offset={-70}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg sm:text-xl font-semibold rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-500 text-white shadow-xl hover:scale-105 transition-all duration-300 transform cursor-pointer"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg sm:text-xl font-semibold rounded-full bg-color-1 text-color-2 shadow-xl hover:scale-105 transition-all duration-300 transform cursor-pointer"
           >
             Explore Amenities
             <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
           </ScrollLink>
 
-          {/* Smooth Scroll to Contact */}
+          {/* Secondary Button: #BF092F Border/Text */}
           <ScrollLink
             to="contact"
             smooth={true}
             duration={700}
             offset={-70}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg sm:text-xl font-semibold rounded-full border-2 border-white text-white shadow-lg hover:bg-white hover:text-gray-900 hover:scale-105 transition-all duration-300 transform cursor-pointer"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg sm:text-xl font-semibold rounded-full border-2 border-color-1 text-color-1 shadow-lg hover:bg-color-1 hover:text-white hover:scale-105 transition-all duration-300 transform cursor-pointer"
           >
             Schedule a Visit
-            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-gray-900 transition-colors" />
+            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-white transition-colors" />
           </ScrollLink>
         </div>
       </div>
 
-      {/* Scroll Down Icon */}
+      {/* Scroll Down Icon (Using #BF092F) */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <ChevronDown className="w-8 h-8 sm:w-10 sm:h-10 text-white drop-shadow-xl" />
+        <ChevronDown className="w-8 h-8 sm:w-10 sm:h-10 text-color-1 drop-shadow-xl" />
       </div>
     </section>
   );

@@ -38,7 +38,7 @@ const Testimonials = () => {
         <div ref={ref} className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
         }`}>
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
             What Our Residents Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -50,7 +50,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`bg-gradient-to-br from-amber-50 to-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
+              className={`bg-gradient-to-br from-color-1/10 to-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -62,13 +62,13 @@ const Testimonials = () => {
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-800">{testimonial.name}</h4>
+                  <h4 className="text-xl font-semibold text-color-3">{testimonial.name}</h4>
                   <p className="text-gray-600">{testimonial.role}</p>
                 </div>
               </div>
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-color-4 fill-current" />
                 ))}
               </div>
               <p className="text-gray-700 italic leading-relaxed">"{testimonial.content}"</p>

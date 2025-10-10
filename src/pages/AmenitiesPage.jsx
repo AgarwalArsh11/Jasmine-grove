@@ -39,10 +39,10 @@ const AmenitiesPage = () => {
   return (
     <div className="min-h-screen" id="amenities">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-color-2 via-color-3 to-color-2 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">Premium</span>{' '}
+            <span className="bg-gradient-to-r from-color-1 to-color-4 bg-clip-text text-transparent">Premium</span>{' '}
             Amenities
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
@@ -62,8 +62,8 @@ const AmenitiesPage = () => {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 m-1 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-amber-600'
+                    ? 'bg-gradient-to-r from-color-4 to-color-3 text-white shadow-lg'
+                    : 'text-color-3 hover:text-color-4'
                 }`}
               >
                 {category.name}
@@ -86,13 +86,13 @@ const AmenitiesPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
-                    <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-white mb-2">
+                    <div className="w-12 h-12 bg-color-4 rounded-full flex items-center justify-center text-white mb-2">
                       {amenity.icon}
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3 hover:text-amber-600 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-color-3 mb-3 hover:text-color-4 transition-colors duration-300">
                     {amenity.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">{amenity.description}</p>
