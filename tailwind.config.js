@@ -24,9 +24,9 @@ module.exports = {
       colors: {
         // --- Custom Palette Definition ---
         'color-1': '#78B9B5', //
-        'color-2': '#0F828C', //
+        'color-2': '#336266ff', //
         'color-3': '#065084', //
-        'color-4': '#320A6B', //
+        'color-4': '#004ef7ff', //
         // ---------------------------------
       },
     },
