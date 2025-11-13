@@ -9,6 +9,7 @@ import AmenitiesPage from './pages/AmenitiesPage';
 import ContactPage from './pages/ContactPage';
 import Gallery from './pages/Gallery';
 import SitePlan from './pages/SitePlan';
+import WhyChoose from './components/WhyChoose';
 
 const App = () => {
   return (
@@ -39,6 +40,9 @@ const App = () => {
       <section id="contact" >
         <ContactPage />
       </section>
+
+      {/* Global trust/metrics strip before footer */}
+      <WhyChoose />
 
       <Footer />
     </div>

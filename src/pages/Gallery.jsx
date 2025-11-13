@@ -14,55 +14,37 @@ import iciciLogo from '../assets/about/logo-2.png';
 import pnbLogo from '../assets/about/logo-3.png';
 import sbiLogo from '../assets/about/logo-4.png';
 import centralBankLogo from '../assets/about/logo-5.png';
-import { Shield, Leaf, Users } from 'lucide-react';
 import Testimonials from '../components/Testimonials';
 
-
-const images = [
-  img1, img2, img3, img4,
-  img5, img6, img7, img8,
-  img9, img10
-];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero / Heading Section */}
       <section className="py-20 bg-gradient-to-br from-color-1/10 via-white to-color-1/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">
-            Our Gallery
-          </h1>
+          <h1 className="text-6xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">Our Gallery</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Take a closer look at our premium residences, elegant interiors, and lifestyle amenities.
-            Every detail is designed with luxury and comfort in mind.
+            Take a closer look at our premium residences, interiors and lifestyle amenities.
           </p>
         </div>
       </section>
 
-      {/* Image Grid Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]">
             {images.map((src, index) => (
               <div
                 key={index}
-                className={`relative overflow-hidden rounded-3xl shadow-lg group cursor-pointer ${
-                  index % 5 === 0 ? "md:row-span-2" : ""
-                }`}
+                className={`relative overflow-hidden rounded-3xl shadow-lg group cursor-pointer ${index % 5 === 0 ? "md:row-span-2" : ""}`}
                 onClick={() => setSelectedImage(src)}
               >
-                <img
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-                  loading="lazy"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-lg font-semibold transition">
-                  View
+                <img src={src} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" loading="lazy" />
+                {/* Better overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 flex items-end p-6 text-white text-lg font-semibold transition">
+                  View ↗
                 </div>
               </div>
             ))}
@@ -70,37 +52,22 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Modal - Kept the same as no colors need changing, just logic */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
-        >
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={() => setSelectedImage(null)}>
           <div className="relative max-w-5xl w-full mx-4">
-            <img
-              src={selectedImage}
-              alt="Enlarged"
-              className="w-full h-auto max-h-[90vh] rounded-2xl shadow-2xl"
-            />
-            <button
-              className="absolute top-4 right-4 text-white text-2xl font-bold bg-black bg-opacity-50 px-3 py-1 rounded-full"
-              onClick={() => setSelectedImage(null)}
-            >
-              ✕
-            </button>
+            <img src={selectedImage} alt="Enlarged" className="w-full h-auto max-h-[90vh] rounded-2xl shadow-2xl" />
+            <button className="absolute top-4 right-4 text-white text-2xl font-bold bg-black bg-opacity-50 px-3 py-1 rounded-full" onClick={() => setSelectedImage(null)}>✕</button>
           </div>
         </div>
       )}
-      {/* Banking Partners Section with automatic carousel */}
-      <section className="py-20 bg-gray-50">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
-            Our Banking Partners
-          </h2>
+
+      {/* Banking Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">Our Banking Partners</h2>
         </div>
         <div className="overflow-hidden">
           <div className="flex space-x-12 animate-scroll-logos">
-
             {[...Array(2)].map((_, listIndex) => (
               <React.Fragment key={listIndex}>
                 <img src={hdfcLogo} alt="HDFC Bank" className="h-20 flex-shrink-0 object-contain transition-all duration-300" />
@@ -114,48 +81,31 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Re-using the Core Values Section from your original code */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">Our Core Values</h2>
+            <p className="text-lg text-gray-600">The principles that guide everything we do</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              {
-                icon: <Shield className="w-8 h-8" />,
-                title: "Trust & Transparency",
-                description: "We believe in honest communication and transparent processes throughout your journey with us."
-              },
-              {
-                icon: <Leaf className="w-8 h-8" />,
-                title: "Sustainable Living",
-                description: "Our developments incorporate eco-friendly practices and sustainable materials for a greener future."
-              },
-              {
-                icon: <Users className="w-8 h-8" />,
-                title: "Community Focus",
-                description: "We create spaces that foster community connections and enhance the quality of life for residents."
-              }
+              { title: "Trust & Transparency", desc: "We believe in honest communication and transparent processes." },
+              { title: "Sustainable Living", desc: "Our developments incorporate eco-friendly practices for a greener future." },
+              { title: "Community Focus", desc: "We create spaces that foster community connections." }
             ].map((value, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-color-1/10 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group"
-              >
+              <div key={index} className="bg-gradient-to-br from-color-1/10 to-white p-6 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group">
                 <div className="w-16 h-16 bg-gradient-to-r from-color-4 to-color-3 rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 transition-transform duration-300">
-                  {value.icon}
+                  {/* icon placeholder */}
                 </div>
                 <h3 className="text-2xl font-bold text-color-3 mb-4">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <p className="text-gray-600 leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
       <Testimonials />
     </div>
   );

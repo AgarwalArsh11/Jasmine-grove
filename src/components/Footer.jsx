@@ -38,9 +38,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-color-4">
-              Quick Links
-            </h4>
+            <h4 className="text-lg font-semibold mb-6 text-color-4">Quick Links</h4>
             <ul className="space-y-3">
               {[
                 { name: "Home", id: "home" },
@@ -53,7 +51,7 @@ const Footer = () => {
                     to={link.id}
                     smooth={true}
                     duration={600}
-                    offset={-70}
+                    offset={-80}
                     className="cursor-pointer text-gray-300 hover:text-color-4 transition-colors duration-300"
                   >
                     {link.name}
@@ -65,9 +63,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-color-4">
-              Contact Info
-            </h4>
+            <h4 className="text-lg font-semibold mb-6 text-color-4">Contact Info</h4>
             <ul className="space-y-4">
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-color-4" />

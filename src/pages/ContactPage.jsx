@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
-// We will remove the useIntersectionObserver hook for this page
-// import { useIntersectionObserver } from '../hooks/hooks';
 
 const ContactPage = () => {
-  // Removed the useIntersectionObserver hook call
-  // const [ref, isVisible] = useIntersectionObserver();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,7 +45,7 @@ const ContactPage = () => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitted(true);
-      // Here you would typically send the data to your backend
+      // Send to backend (left as TODO)
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({
@@ -66,133 +61,66 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
+    <div className="min-h-screen pt-20" id="contact">
       <section className="py-20 bg-gradient-to-br from-color-1/10 via-white to-color-1/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Removed the ref and isVisible logic from the header */}
-          <div className="text-center mb-16 transition-all duration-1000 opacity-100 transform translate-y-0">
-            <h1 className="text-6xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">
               Get In Touch
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to make Luxe Living your home? Contact our expert team to
-              schedule a visit or get more information about our premium
-              apartments.
+              Ready to make Jasmine Grove your home? Contact our expert team to schedule a visit or get more information.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            {/* Removed the isVisible logic from the form and contact info containers */}
-            <div className="transition-all duration-1000 delay-300 opacity-100 transform translate-x-0">
+            <div>
               <div className="bg-white rounded-3xl shadow-2xl p-8">
-                <h2 className="text-3xl font-bold text-color-3 mb-8">
-                  Schedule Your Visit
-                </h2>
+                <h2 className="text-3xl font-bold text-color-3 mb-8">Schedule Your Visit</h2>
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <div className="w-8 h-8 bg-color-4 rounded-full flex items-center justify-center">
-                        <svg
-                          className="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-color-3 mb-2">
-                      Thank You!
-                    </h3>
-                    <p className="text-gray-600">
-                      We'll contact you shortly to schedule your visit.
-                    </p>
+                    <h3 className="text-2xl font-bold text-color-3 mb-2">Thank You!</h3>
+                    <p className="text-gray-600">We'll contact you shortly to schedule your visit.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 ${
-                            errors.name ? "border-red-500" : "border-gray-200"
-                          }`}
-                          placeholder="Your full name"
-                        />
-                        {errors.name && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.name}
-                          </p>
-                        )}
+                        <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
+                        <input type="text" name="name" value={formData.name} onChange={handleInputChange}
+                          className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 ${errors.name ? "border-red-500" : "border-gray-200"}`}
+                          placeholder="Your full name" />
+                        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 ${
-                            errors.email ? "border-red-500" : "border-gray-200"
-                          }`}
-                          placeholder="your.email@example.com"
-                        />
-                        {errors.email && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.email}
-                          </p>
-                        )}
+                        <label className="block text-gray-700 font-medium mb-2">Email Address *</label>
+                        <input type="email" name="email" value={formData.email} onChange={handleInputChange}
+                          className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 ${errors.email ? "border-red-500" : "border-gray-200"}`}
+                          placeholder="your.email@example.com" />
+                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">
-                          Phone Number *
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 ${
-                            errors.phone ? "border-red-500" : "border-gray-200"
-                          }`}
-                          placeholder="9876543210"
-                        />
-                        {errors.phone && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.phone}
-                          </p>
-                        )}
+                        <label className="block text-gray-700 font-medium mb-2">Phone Number *</label>
+                        <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
+                          className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 ${errors.phone ? "border-red-500" : "border-gray-200"}`}
+                          placeholder="9876543210" />
+                        {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                       </div>
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">
-                          Property Interest
-                        </label>
-                        <select
-                          name="propertyType"
-                          value={formData.propertyType}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-color-4 transition-colors duration-300"
-                        >
+                        <label className="block text-gray-700 font-medium mb-2">Property Interest</label>
+                        <select name="propertyType" value={formData.propertyType} onChange={handleInputChange}
+                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-color-4 transition-colors duration-300">
                           <option value="3bhk">3 BHK Apartment</option>
                           <option value="4bhk">4 BHK Apartment</option>
                           <option value="both">Both Options</option>
@@ -201,44 +129,21 @@ const ContactPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">
-                        Preferred Visit Date
-                      </label>
-                      <input
-                        type="date"
-                        name="visitDate"
-                        value={formData.visitDate}
-                        onChange={handleInputChange}
+                      <label className="block text-gray-700 font-medium mb-2">Preferred Visit Date</label>
+                      <input type="date" name="visitDate" value={formData.visitDate} onChange={handleInputChange}
                         min={new Date().toISOString().split("T")[0]}
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-color-4 transition-colors duration-300"
-                      />
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-color-4 transition-colors duration-300" />
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">
-                        Message *
-                      </label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        rows="4"
-                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 resize-none ${
-                          errors.message ? "border-red-500" : "border-gray-200"
-                        }`}
-                        placeholder="Tell us about your requirements or any questions you have..."
-                      />
-                      {errors.message && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.message}
-                        </p>
-                      )}
+                      <label className="block text-gray-700 font-medium mb-2">Message *</label>
+                      <textarea name="message" value={formData.message} onChange={handleInputChange} rows="4"
+                        className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-color-4 transition-colors duration-300 resize-none ${errors.message ? "border-red-500" : "border-gray-200"}`}
+                        placeholder="Tell us about your requirements or any questions you have..." />
+                      {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                     </div>
 
-                    <button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-color-4 to-color-3 text-white py-4 rounded-xl font-semibold text-lg hover:from-color-3 hover:to-color-2 transform hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl"
-                    >
+                    <button type="submit" className="w-full bg-gradient-to-r from-color-4 to-color-3 text-white py-4 rounded-xl font-semibold text-lg hover:from-color-3 hover:to-color-2 transform hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl">
                       Submit Request
                     </button>
                   </form>
@@ -247,21 +152,16 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="transition-all duration-1000 delay-500 opacity-100 transform translate-x-0">
+            <div>
               <div className="space-y-8">
                 <div className="bg-gradient-to-br from-color-4 to-color-3 text-white rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold mb-6">
-                    Visit Our Sales Office
-                  </h3>
+                  <h3 className="text-2xl font-bold mb-6">Visit Our Sales Office</h3>
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
                       <MapPin className="w-6 h-6 mt-1" />
                       <div>
                         <p className="font-medium">Address</p>
-                        <p className="opacity-90">
-                          Delhi Meerut Expressway, NH-24, Ghaziabad, Uttar
-                          Pradesh 201002
-                        </p>
+                        <p className="opacity-90">Delhi Meerut Expressway, NH-24, Ghaziabad, Uttar Pradesh 201002</p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
@@ -282,9 +182,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="bg-white rounded-3xl shadow-lg p-8">
-                  <h3 className="text-2xl font-bold text-color-3 mb-6">
-                    Office Hours
-                  </h3>
+                  <h3 className="text-2xl font-bold text-color-3 mb-6">Office Hours</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Monday - Friday</span>
@@ -302,11 +200,9 @@ const ContactPage = () => {
                 </div>
 
                 <div className="bg-gradient-to-br from-color-3 to-color-2 text-white rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold mb-4">
-                    Why Choose Jasmine Grove?
-                  </h3>
+                  <h3 className="text-2xl font-bold mb-4">Why Choose Jasmine Grove?</h3>
                   <ul className="space-y-2 opacity-90">
-                    <li>• Premium location in the heart of Mumbai</li>
+                    <li>• Premium location in the heart of Ghaziabad</li>
                     <li>• World-class amenities and facilities</li>
                     <li>• Exceptional build quality and design</li>
                     <li>• Trusted developer with 25+ years experience</li>
@@ -316,6 +212,11 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
+
+          {/* Floating Call Button */}
+          <a href="tel:+919015750750" className="fixed bottom-6 right-6 z-50 bg-color-4 text-white px-6 py-3 rounded-full shadow-2xl">
+            📞 Call Now
+          </a>
         </div>
       </section>
     </div>

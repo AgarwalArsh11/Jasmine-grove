@@ -1,33 +1,47 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-// Animation Hook
-export const useScrollAnimation = () => {
-  const [scrollY, setScrollY] = useState(0);
-  
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  return scrollY;
-};
-
-// Intersection Observer Hook
-export const useIntersectionObserver = (options = {}) => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const [elementRef, setElementRef] = useState(null);
+/**
+ * useIntersectionObserver
+ * Returns [ref, isVisible] for simple reveal-on-scroll animations.
+ */
+export function useIntersectionObserver(options = { root: null, rootMargin: '0px', threshold: 0.12 }) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (!elementRef) return;
+    const node = ref.current;
+    if (!node) return;
 
     const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting);
-    }, { threshold: 0.5, ...options });
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        // If you want the animation only once, unobserve immediately
+        observer.unobserve(node);
+      }
+    }, options);
 
-    observer.observe(elementRef);
+    observer.observe(node);
     return () => observer.disconnect();
-  }, [elementRef]);
+  }, [ref, options]);
 
-  return [setElementRef, isIntersecting];
-};
+  return [ref, isVisible];
+}
+
+/**
+ * useScrollAnimation
+ * Small hook to return scrollY fraction for parallax transforms.
+ */
+export function useScrollAnimation() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handle = () => {
+      setScrollY(window.scrollY || 0);
+    };
+    handle();
+    window.addEventListener('scroll', handle, { passive: true });
+    return () => window.removeEventListener('scroll', handle);
+  }, []);
+
+  return scrollY;
+}

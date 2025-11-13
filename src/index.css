@@ -89,3 +89,8 @@ body {
 .animate-scroll-logos:hover {
   animation-play-state: paused;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+body { font-family: 'Poppins', sans-serif; }
+.hero-title, h1, h2 { font-family: 'Playfair Display', serif; }
+

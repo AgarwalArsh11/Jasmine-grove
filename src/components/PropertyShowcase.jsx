@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
 import { Bed, Bath, Maximize, X } from 'lucide-react';
 import property1 from '../assets/property/property1.avif';
 import property2 from '../assets/property/property2.avif';
@@ -52,31 +51,27 @@ const PropertyShowcase = () => {
   ];
 
   const filteredProperties =
-    activeFilter === 'all'
-      ? properties
-      : properties.filter((p) => p.type === activeFilter);
+    activeFilter === 'all' ? properties : properties.filter((p) => p.type === activeFilter);
 
   return (
     <section id="properties" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-4">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-3">
             Exquisite Residences
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose from our carefully curated collection of luxury apartments designed for the discerning homeowner
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Choose from our carefully curated collection of luxury apartments built for the discerning homeowner.
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-8">
           <div className="flex bg-white rounded-full p-2 shadow-lg">
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
                   activeFilter === filter.id
                     ? 'bg-gradient-to-r from-color-4 to-color-3 text-white shadow-lg'
                     : 'text-color-3 hover:text-color-4'
@@ -88,7 +83,6 @@ const PropertyShowcase = () => {
           </div>
         </div>
 
-        {/* Property Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProperties.map((property) => (
             <div
@@ -128,17 +122,12 @@ const PropertyShowcase = () => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {property.features.slice(0, 2).map((feature) => (
-                    <span
-                      key={feature}
-                      className="bg-color-4/10 text-color-3 px-3 py-1 rounded-full text-sm font-medium"
-                    >
+                    <span key={feature} className="bg-color-4/10 text-color-3 px-3 py-1 rounded-full text-sm font-medium">
                       {feature}
                     </span>
                   ))}
                   {property.features.length > 2 && (
-                    <span className="text-color-4 text-sm font-medium">
-                      +{property.features.length - 2} more
-                    </span>
+                    <span className="text-color-4 text-sm font-medium">+{property.features.length - 2} more</span>
                   )}
                 </div>
               </div>
@@ -146,16 +135,12 @@ const PropertyShowcase = () => {
           ))}
         </div>
 
-        {/* Property Modal */}
+        {/* Modal */}
         {selectedProperty && (
           <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-auto">
               <div className="relative">
-                <img
-                  src={selectedProperty.image}
-                  alt={selectedProperty.title}
-                  className="w-full h-96 object-cover"
-                />
+                <img src={selectedProperty.image} alt={selectedProperty.title} className="w-full h-96 object-cover" />
                 <button
                   onClick={() => setSelectedProperty(null)}
                   className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors duration-300"
@@ -163,15 +148,12 @@ const PropertyShowcase = () => {
                   <X className="w-5 h-5" />
                 </button>
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <span className="text-2xl font-bold text-color-4">
-                    {selectedProperty.price}
-                  </span>
+                  <span className="text-2xl font-bold text-color-4">{selectedProperty.price}</span>
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-3xl font-bold text-color-3 mb-4">
-                  {selectedProperty.title}
-                </h3>
+                <h3 className="text-3xl font-bold text-color-3 mb-4">{selectedProperty.title}</h3>
+
                 <div className="grid md:grid-cols-3 gap-4 mb-6">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Bed className="w-5 h-5 text-color-4" />
@@ -187,21 +169,18 @@ const PropertyShowcase = () => {
                   </div>
                 </div>
 
-                {/* Scroll to Contact Button */}
-                <ScrollLink
-                  to="contact"
-                  smooth={true}
-                  duration={600}
-                  offset={-70}
+                <a
+                  href="#contact"
                   onClick={() => setSelectedProperty(null)}
                   className="block w-full bg-gradient-to-r from-color-4 to-color-3 text-white text-center py-4 rounded-full font-semibold text-lg hover:from-color-3 hover:to-color-2 transition-all duration-300 cursor-pointer"
                 >
                   Schedule a Visit
-                </ScrollLink>
+                </a>
               </div>
             </div>
           </div>
         )}
+
       </div>
     </section>
   );
