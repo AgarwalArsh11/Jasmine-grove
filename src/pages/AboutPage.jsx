@@ -5,7 +5,7 @@ import PropertyShowcase from '../components/PropertyShowcase';
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-0">
       <section className="py-20 bg-gradient-to-br from-color-1/10 via-white to-color-1/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

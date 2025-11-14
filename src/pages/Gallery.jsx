@@ -22,7 +22,7 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-0">
       <section className="py-20 bg-gradient-to-br from-color-1/10 via-white to-color-1/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-6xl font-bold bg-gradient-to-r from-color-4 to-color-3 bg-clip-text text-transparent mb-6">Our Gallery</h1>
