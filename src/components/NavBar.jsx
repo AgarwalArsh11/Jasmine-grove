@@ -6,6 +6,7 @@ const HEADER_OFFSET = 80;
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
     { name: "Home", path: "home" },
@@ -45,19 +46,27 @@ const NavBar = () => {
         }
       }
     }
-
     setActiveSection(current);
   }, [navLinks]);
 
   useEffect(() => {
-    window.addEventListener("scroll", updateActive);
-    updateActive();
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      updateActive();
+    };
 
-    return () => window.removeEventListener("scroll", updateActive);
+    window.addEventListener("scroll", onScroll);
+    updateActive();
+    return () => window.removeEventListener("scroll", onScroll);
   }, [updateActive]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+    <nav
+      className={`
+        fixed top-0 left-0 right-0 z-50 transition-all duration-500 
+        ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}
+      `}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
 
@@ -66,33 +75,53 @@ const NavBar = () => {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => handleScroll("home")}
           >
-            <div className="w-10 h-10 bg-[#0A2A4A] rounded-lg flex items-center justify-center">
+            <div
+              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 
+                ${isScrolled ? "bg-[#0A2A4A]" : "bg-white/20"}
+              `}
+            >
               <Home className="w-5 h-5 text-white" />
             </div>
-            <span className="text-3xl font-bold text-[#0A2A4A]">
+
+            <span
+              className={`text-3xl font-bold transition-all duration-300 
+                ${isScrolled ? "text-[#0A2A4A]" : "text-white"}
+              `}
+            >
               Jasmine Grove
             </span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <button
                 key={link.path}
                 onClick={() => handleScroll(link.path)}
-                className={`text-lg font-medium relative group ${
-                  activeSection === link.path
-                    ? "text-[#0A2A4A]"
-                    : "text-gray-600"
-                }`}
+                className={`text-lg font-medium relative group transition-all duration-300
+                  ${
+                    isScrolled
+                      ? activeSection === link.path
+                        ? "text-[#0A2A4A]"
+                        : "text-gray-600"
+                      : activeSection === link.path
+                      ? "text-white"
+                      : "text-gray-200"
+                  }
+                `}
               >
                 {link.name}
+
+                {/* Underline */}
                 <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-[#0A2A4A] transition-all duration-300 ${
-                    activeSection === link.path
-                      ? "w-full"
-                      : "w-0 group-hover:w-full"
-                  }`}
+                  className={`absolute left-0 bottom-0 h-[2px] transition-all duration-300
+                    ${isScrolled ? "bg-[#0A2A4A]" : "bg-white"}
+                    ${
+                      activeSection === link.path
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }
+                  `}
                 />
               </button>
             ))}
@@ -100,15 +129,24 @@ const NavBar = () => {
             {/* Contact Button */}
             <button
               onClick={() => handleScroll("contact")}
-              className="px-6 py-3 rounded-full bg-[#0A2A4A] text-white text-lg font-semibold shadow-md hover:bg-[#123961] transition"
+              className={`
+                px-6 py-3 rounded-full text-lg font-semibold shadow-md transition
+                ${
+                  isScrolled
+                    ? "bg-[#0A2A4A] text-white hover:bg-[#123961]"
+                    : "bg-white/20 text-white border border-white hover:bg-white/30"
+                }
+              `}
             >
               Contact Us
             </button>
           </div>
 
-          {/* Mobile Menu Icon */}
+          {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-[#0A2A4A]"
+            className={`md:hidden p-2 transition-all duration-300 ${
+              isScrolled ? "text-[#0A2A4A]" : "text-white"
+            }`}
             onClick={toggleMenu}
           >
             {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -118,9 +156,9 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-white shadow-xl transition-all ${
-          isOpen ? "max-h-[400px] py-4" : "max-h-0 overflow-hidden"
-        }`}
+        className={`md:hidden transition-all duration-500 overflow-hidden
+          ${isOpen ? "max-h-[400px] py-4 bg-white shadow-xl" : "max-h-0"}
+        `}
       >
         <div className="flex flex-col items-center space-y-4">
           {navLinks.map((link) => (

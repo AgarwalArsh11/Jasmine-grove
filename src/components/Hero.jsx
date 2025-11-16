@@ -3,8 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/hooks";
 
-// IMPORT THE NEW ENHANCED WIDE HERO IMAGE
-import heroImage from "../assets/hero/final-hero.png";
+import heroImage from "../assets/hero/final-hero.png"; // <-- USE NEW WIDE IMAGE
 
 const Hero = () => {
   const [ref, isVisible] = useIntersectionObserver();
@@ -12,26 +11,31 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden bg-black"
     >
-      {/* Full Width + Full Height Background */}
-      <div
-        className="absolute inset-0 bg-no-repeat bg-cover"
+      {/* FULL WIDTH CINEMATIC IMAGE */}
+      <img
+        src={heroImage}
+        alt="Jasmine Grove"
+        className="
+          absolute inset-0 w-full h-full
+          object-cover
+          transition-all duration-700
+        "
         style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundPosition: "center center",   // perfect centering
+          objectPosition: "center center",
         }}
-      ></div>
+      />
 
-      {/* Soft Overlay for readability */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Premium dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/70"></div>
 
-      {/* Hero Content */}
+      {/* Content */}
       <div
         ref={ref}
-        className={`relative z-10 text-center px-6 max-w-4xl transition-all duration-1000 
-          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-        `}
+        className={`relative z-10 text-center px-6 max-w-4xl transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
       >
         <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 drop-shadow-xl">
           Find Your Dream Home
@@ -41,16 +45,15 @@ const Hero = () => {
           Explore our exclusive collection of luxury residences in the heart of the city.
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
           <ScrollLink
             to="amenities"
             smooth={true}
             duration={700}
             offset={-60}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 
-            text-lg font-semibold rounded-full bg-white text-gray-900 hover:bg-gray-200 
-            shadow-lg hover:scale-105 transition cursor-pointer"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg 
+            font-semibold rounded-full bg-white text-gray-900 hover:bg-gray-200 shadow-lg 
+            hover:scale-105 transition cursor-pointer"
           >
             View Listings
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
@@ -61,9 +64,9 @@ const Hero = () => {
             smooth={true}
             duration={700}
             offset={-60}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 
-            text-lg font-semibold rounded-full border-2 border-white text-white 
-            hover:bg-white hover:text-gray-900 hover:scale-105 transition cursor-pointer"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg 
+            font-semibold rounded-full border-2 border-white text-white hover:bg-white 
+            hover:text-gray-900 hover:scale-105 transition cursor-pointer"
           >
             Contact Us
             <Calendar className="w-5 h-5" />
@@ -71,7 +74,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Arrow */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
         <ChevronDown className="w-10 h-10 text-white" />
       </div>
