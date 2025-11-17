@@ -15,17 +15,17 @@ const Hero = () => {
     >
       {/* FULL WIDTH CINEMATIC IMAGE */}
       <img
-        src={heroImage}
-        alt="Jasmine Grove"
-        className="
-          absolute inset-0 w-full h-full
-          object-cover
-          transition-all duration-700
-        "
-        style={{
-          objectPosition: "center center",
-        }}
-      />
+  src={heroImage}
+  alt="Jasmine Grove"
+  className="
+    absolute inset-0 w-full h-full
+    object-contain
+    bg-black
+    transition-all duration-700
+  "
+  style={{ objectPosition: "center center" }}
+/>
+
 
       {/* Premium dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/70"></div>
@@ -51,8 +51,8 @@ const Hero = () => {
             smooth={true}
             duration={700}
             offset={-60}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg 
-            font-semibold rounded-full bg-white text-gray-900 hover:bg-gray-200 shadow-lg 
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg
+            font-semibold rounded-full bg-white text-gray-900 hover:bg-gray-200 shadow-lg
             hover:scale-105 transition cursor-pointer"
           >
             View Listings
@@ -64,8 +64,8 @@ const Hero = () => {
             smooth={true}
             duration={700}
             offset={-60}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg 
-            font-semibold rounded-full border-2 border-white text-white hover:bg-white 
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-lg
+            font-semibold rounded-full border-2 border-white text-white hover:bg-white
             hover:text-gray-900 hover:scale-105 transition cursor-pointer"
           >
             Contact Us
