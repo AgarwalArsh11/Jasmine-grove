@@ -15,12 +15,9 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-
-      {/* Each section must have the SAME id as the "path" in your navbar */}
       <section id="home" >
         <HomePage />
       </section>
-
       <section id="about" >
         <AboutPage />
       </section>

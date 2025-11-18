@@ -3,7 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/hooks";
 
-import heroImage from "../assets/hero/final-hero.png"; // <-- USE WIDE IMAGE
+import heroImage from "../assets/hero/final-hero.png"; 
 
 const Hero = () => {
   const [ref, isVisible] = useIntersectionObserver();
@@ -13,7 +13,6 @@ const Hero = () => {
       id="home"
       className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden"
     >
-      {/* RESPONSIVE, FULL WIDTH HERO IMAGE */}
       <img
         src={heroImage}
         alt="Jasmine Grove"

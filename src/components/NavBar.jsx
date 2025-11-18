@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Home, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+import logo from "../assets/hero/jasmine-logo.png";
 
 const HEADER_OFFSET = 80;
 
@@ -70,18 +72,18 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
 
-          {/* Logo */}
+          {/* LOGO WITH IMAGE */}
           <div
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => handleScroll("home")}
           >
-            <div
-              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 
-                ${isScrolled ? "bg-[#0A2A4A]" : "bg-white/20"}
+            <img
+              src={logo}
+              alt="Jasmine Grove Logo"
+              className={`w-12 h-12 object-contain transition-all duration-300 
+                ${isScrolled ? "" : "brightness-110"}
               `}
-            >
-              <Home className="w-5 h-5 text-white" />
-            </div>
+            />
 
             <span
               className={`text-3xl font-bold transition-all duration-300 
@@ -92,7 +94,6 @@ const NavBar = () => {
             </span>
           </div>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <button
@@ -112,7 +113,6 @@ const NavBar = () => {
               >
                 {link.name}
 
-                {/* Underline */}
                 <span
                   className={`absolute left-0 bottom-0 h-[2px] transition-all duration-300
                     ${isScrolled ? "bg-[#0A2A4A]" : "bg-white"}
@@ -126,7 +126,6 @@ const NavBar = () => {
               </button>
             ))}
 
-            {/* Contact Button */}
             <button
               onClick={() => handleScroll("contact")}
               className={`
@@ -142,7 +141,6 @@ const NavBar = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button
             className={`md:hidden p-2 transition-all duration-300 ${
               isScrolled ? "text-[#0A2A4A]" : "text-white"
@@ -154,7 +152,6 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden transition-all duration-500 overflow-hidden
           ${isOpen ? "max-h-[400px] py-4 bg-white shadow-xl" : "max-h-0"}
