@@ -36,7 +36,7 @@ const AmenitiesPage = () => {
 
   return (
     <div className="min-h-screen" id="amenities">
-      <section className="py-20 bg-gradient-to-br from-color-2 via-color-3 to-color-2 text-white">
+      <section className="py-10 bg-gradient-to-br from-color-2 via-color-3 to-color-2 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl sm:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-color-1 to-color-4 bg-clip-text text-transparent">Premium</span>{' '}

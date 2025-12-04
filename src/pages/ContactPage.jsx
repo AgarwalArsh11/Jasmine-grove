@@ -214,9 +214,10 @@ const ContactPage = () => {
           </div>
 
           {/* Floating Call Button */}
-          <a href="tel:+919015750750" className="fixed bottom-6 right-6 z-50 bg-color-4 text-white px-6 py-3 rounded-full shadow-2xl">
-            📞 Call Now
+          <a href="tel:+919015750750" className="fixed bottom-6 right-6 z-50 bg-black text-white px-6 py-3 rounded-full shadow-2xl animate-bounce hover:scale-110 transition">
+          📞 Call Now
           </a>
+
         </div>
       </section>
     </div>

@@ -87,7 +87,7 @@ const NavBar = () => {
 
             <span
               className={`text-3xl font-bold transition-all duration-300 
-                ${isScrolled ? "text-[#0A2A4A]" : "text-white"}
+                ${isScrolled ? "text-[#0A0A0A]" : "text-white"}
               `}
             >
               Jasmine Grove
@@ -132,7 +132,7 @@ const NavBar = () => {
                 px-6 py-3 rounded-full text-lg font-semibold shadow-md transition
                 ${
                   isScrolled
-                    ? "bg-[#0A2A4A] text-white hover:bg-[#123961]"
+                    ? "bg-[#000000] text-white hover:bg-[#123961]"
                     : "bg-white/20 text-white border border-white hover:bg-white/30"
                 }
               `}
