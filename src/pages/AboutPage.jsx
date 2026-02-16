@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Building } from 'lucide-react';
+
 import finalAboutUsImage from '../assets/about/jasmine-grove-about.png';
 import PropertyShowcase from '../components/PropertyShowcase';
 

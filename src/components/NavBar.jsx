@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Menu, X } from "lucide-react";
 
 import logo from "../assets/hero/jasmine-logo.png";
@@ -10,13 +10,14 @@ const NavBar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const navLinks = [
+  // ✅ FIX: memoized so dependency doesn't change every render
+  const navLinks = useMemo(() => [
     { name: "Home", path: "home" },
     { name: "About", path: "about" },
     { name: "Site Plan", path: "siteplan" },
     { name: "Amenities", path: "amenities" },
     { name: "Gallery", path: "gallery" },
-  ];
+  ], []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
