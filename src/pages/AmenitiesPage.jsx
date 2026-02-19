@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dumbbell, Waves, Car, Wifi, Users, Leaf } from "lucide-react";
 import amenity1 from "../assets/amenities/amenity1.avif";
 import amenity2 from "../assets/amenities/amenity2.avif";
