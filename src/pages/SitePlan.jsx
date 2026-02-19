@@ -1,20 +1,9 @@
 import React, { useState } from "react";
-import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 import sitePlanImg from "../assets/siteplan/large-plan.jpg";
 import room1 from "../assets/siteplan/room1.jpg";
 import room2 from "../assets/siteplan/room2.jpg";
 import room3 from "../assets/siteplan/room3.jpg";
 import room4 from "../assets/siteplan/room4.jpg";
-
-const salesData = [
-  { name: "2018", value: 400 },
-  { name: "2019", value: 300 },
-  { name: "2020", value: 500 },
-  { name: "2021", value: 350 },
-  { name: "2022", value: 450 },
-];
-
-const COLORS = ["#3B9797", "#16476A", "#132440", "#BF092F", "#6A9C77"];
 
 const SitePlan = () => {
   const [selectedImg, setSelectedImg] = useState(null);

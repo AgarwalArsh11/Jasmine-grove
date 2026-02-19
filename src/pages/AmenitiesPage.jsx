@@ -11,8 +11,6 @@ import amenity8 from "../assets/amenities/amenity8.jpg";
 import amenity9 from "../assets/amenities/amenity9.webp";
 
 const AmenitiesPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
   const amenities = [
     {
       category: "fitness",
@@ -88,18 +86,6 @@ const AmenitiesPage = () => {
     },
   ];
 
-  const categories = [
-    { id: "all", name: "All Amenities" },
-    { id: "fitness", name: "Sports" },
-    { id: "recreation", name: "Recreation" },
-    { id: "convenience", name: "Convenience" },
-  ];
-
-  const filteredAmenities =
-    selectedCategory === "all"
-      ? amenities
-      : amenities.filter((a) => a.category === selectedCategory);
-
   return (
     <div className="min-h-screen" id="amenities">
       <section className="py-10 bg-gradient-to-br from-color-2 via-color-3 to-color-2 text-white">
@@ -126,7 +112,7 @@ const AmenitiesPage = () => {
               <div className="inline-flex">
                 {[...Array(2)].map((_, listIndex) => (
                   <React.Fragment key={listIndex}>
-                    {filteredAmenities.map((amenity, i) => (
+                    {amenities.map((amenity, i) => (
                       <div
                         key={i}
                         className="flex-shrink-0 w-80 h-64 rounded-3xl bg-white shadow-xl overflow-hidden mx-4 group relative"

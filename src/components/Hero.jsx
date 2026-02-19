@@ -1,6 +1,5 @@
 import React from "react";
-import { Link as ScrollLink } from "react-scroll";
-import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/hooks";
 
 import heroImage from "../assets/hero/final-hero.png";
