@@ -1,40 +1,35 @@
-import React from 'react';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
+import React from "react";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 // Import your section/page components
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import AmenitiesPage from './pages/AmenitiesPage';
-import ContactPage from './pages/ContactPage';
-import Gallery from './pages/Gallery';
-import SitePlan from './pages/SitePlan';
-import WhyChoose from './components/WhyChoose';
+import HomePage from "./pages/HomePage";
+// AmenitiesPage now rendered inside HomePage
+import ContactPage from "./pages/ContactPage";
+import Gallery from "./pages/Gallery";
+import SitePlan from "./pages/SitePlan";
+import WhyChoose from "./components/WhyChoose";
 
 const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <section id="home" >
+      <section id="home">
         <HomePage />
       </section>
-      <section id="about" >
-        <AboutPage />
-      </section>
+      {/* About page moved inside HomePage; standalone section removed */}
 
-      <section id="siteplan" >
+      <section id="siteplan">
         <SitePlan />
       </section>
 
-      <section id="amenities" >
-        <AmenitiesPage />
-      </section>
+      {/* Amenities moved into HomePage; top-level section removed */}
 
-      <section id="gallery" >
+      <section id="gallery">
         <Gallery />
       </section>
 
-      <section id="contact" >
+      <section id="contact">
         <ContactPage />
       </section>
 

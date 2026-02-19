@@ -3,7 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { ArrowRight, Calendar, ChevronDown } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/hooks";
 
-import heroImage from "../assets/hero/final-hero.png"; 
+import heroImage from "../assets/hero/final-hero.png";
 
 const Hero = () => {
   const [ref, isVisible] = useIntersectionObserver();
@@ -35,37 +35,11 @@ const Hero = () => {
         </h1>
 
         <p className="text-sm sm:text-lg md:text-2xl text-gray-200 mb-10 drop-shadow-md">
-          Explore our exclusive collection of luxury residences in the heart of the city.
+          Explore our exclusive collection of luxury residences in the heart of
+          the city.
         </p>
 
-        {/* BUTTONS */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <ScrollLink
-            to="amenities"
-            smooth={true}
-            duration={700}
-            offset={-60}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-3 md:py-4 text-lg 
-            font-semibold rounded-full bg-white text-gray-900 hover:bg-gray-200 shadow-lg 
-            hover:scale-105 transition cursor-pointer w-full sm:w-auto"
-          >
-            View Listings
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
-          </ScrollLink>
-
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={700}
-            offset={-60}
-            className="group inline-flex items-center justify-center gap-3 px-8 py-3 md:py-4 text-lg 
-            font-semibold rounded-full border-2 border-white text-white hover:bg-white 
-            hover:text-gray-900 hover:scale-105 transition cursor-pointer w-full sm:w-auto"
-          >
-            Contact Us
-            <Calendar className="w-5 h-5" />
-          </ScrollLink>
-        </div>
+        {/* Buttons removed as requested */}
       </div>
 
       {/* SCROLL INDICATOR */}
